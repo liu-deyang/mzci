@@ -18,12 +18,12 @@
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#0A2463', // 深蓝色
-                            light: '#1E3A8A',
+                            DEFAULT: '#3E92CC', // 浅蓝色（原secondary）
+                            light: '#5DB7DE',
                         },
                         secondary: {
-                            DEFAULT: '#3E92CC', // 中蓝色
-                            light: '#5DB7DE',
+                            DEFAULT: '#0A2463', // 深蓝色（原primary）
+                            light: '#1E3A8A',
                         },
                         accent: {
                             DEFAULT: '#D8315B', // 深红色作为强调色
@@ -62,7 +62,7 @@
         }
         
         .bg-gradient {
-            background: linear-gradient(135deg, #0A2463 0%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #3E92CC 0%, #5DB7DE 100%);
         }
         
         .card-hover {
@@ -74,11 +74,26 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .globe-container {
+        .city-slider {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 100%;
             overflow: hidden;
+        }
+        
+        .city-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .city-dot.active {
+            background-opacity: 100%;
+            transform: scale(1.2);
         }
         
         #globe-canvas {
@@ -121,8 +136,8 @@
         
         /* 响应式调整 */
         @media (max-width: 768px) {
-            .globe-container {
-                height: 400px;
+            .city-slider {
+                height: 100%;
             }
             
             .mobile-menu {
@@ -246,7 +261,7 @@
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
                 <div id="logo-container" class="relative mr-4">
-                    <img id="logo-image" src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5703944e40c5448b80e5ecc57059d3a7.png~tplv-a9rns2rl98-24:720:720.png?rcl=2025112123313327B8FB77EE7F97A5A6CB&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1764343893&x-signature=7czDziBOhzEpCAHgcIeOw5Eymj4%3D" alt="Company Logo" class="h-10">
+                    <img id="logo-image" src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/dd1060c2aac8412bbc62eac6079bf7d1.png~tplv-a9rns2rl98-24:720:720.png?rcl=20251125145947ABD9A5E578EBFEDDB09F&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1764658787&x-signature=cYpnvn72GVW%2FlzPZ4Qxx4sEUgC8%3D" alt="Company Logo" class="h-10">
                     <span id="logo-text" class="text-2xl font-bold text-primary font-en hidden">Minze<span class="text-secondary">Cap</span></span>
                 </div>
             </div>
@@ -303,7 +318,7 @@
     
     
     <!-- 首屏 -->
-    <section id="home" class="relative h-screen flex items-center bg-gradient">
+    <section id="home" class="relative h-screen flex items-center bg-gradient overflow-hidden">
         <div class="container mx-auto px-4 z-10">
             <div class="max-w-3xl">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-shadow">
@@ -321,9 +336,32 @@
             </div>
         </div>
         
-        <!-- 3D地球背景 -->
-        <div class="globe-container absolute inset-0">
-            <div id="globe-canvas"></div>
+        <!-- 城市轮播背景 -->
+        <div class="city-slider absolute inset-0">
+            <div class="city-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/971601600469925995~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779605767&x-signature=LR0%2B%2BM9XdD3NazIwrrzP5JWwhd4%3D" alt="Hong Kong" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            </div>
+            <div class="city-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://p26-doubao-search-sign.byteimg.com/labis/ac01e4b04eb1c644ad22cdd6d6a9d8fc~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779605767&x-signature=UjYuyFTa6boxJNs%2FxkEmM7men0s%3D" alt="Shanghai" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            </div>
+            <div class="city-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/905578684589408281~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779605767&x-signature=F9LlJ0PdgJ4AHzFTTG%2BSGjCsO%2Fw%3D" alt="New York" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            </div>
+            <div class="city-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1041012223464570896~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779605767&x-signature=p708GDfrgs1CKHGRzk6rMjsPPlc%3D" alt="London" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            </div>
+            
+            <!-- 轮播控制 -->
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-3 z-10">
+                <button class="city-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300 active" data-index="0"></button>
+                <button class="city-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300" data-index="1"></button>
+                <button class="city-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300" data-index="2"></button>
+                <button class="city-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300" data-index="3"></button>
+            </div>
         </div>
     </section>
     
@@ -1793,73 +1831,54 @@ AI投資策略的優勢主要體現在以下幾個方面：<br><br>
             });
         });
         
-        // 3D地球效果
+        // 城市轮播效果
         window.addEventListener('load', function() {
-            // 创建场景
-            const scene = new THREE.Scene();
+            const slides = document.querySelectorAll('.city-slide');
+            const dots = document.querySelectorAll('.city-dot');
+            let currentSlide = 0;
             
-            // 创建相机
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 200;
+            // 初始化第一张幻灯片
+            slides[currentSlide].style.opacity = '1';
             
-            // 创建渲染器
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('globe-canvas').appendChild(renderer.domElement);
-            
-            // 创建地球
-            const geometry = new THREE.SphereGeometry(80, 64, 64);
-            
-            // 加载地球纹理
-            const textureLoader = new THREE.TextureLoader();
-            const earthTexture = textureLoader.load('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/c6786e552f8146a994063b379b6003a9~tplv-a9rns2rl98-image.image?rcl=202511212228083C8CC82AC04E0497CFF4&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1766327320&x-signature=XvP11EOqmDJrnUbk7WPE10Ppd%2Fs%3D');
-            
-            const material = new THREE.MeshBasicMaterial({
-                map: earthTexture,
-                transparent: true,
-                opacity: 0.9
-            });
-            
-            const earth = new THREE.Mesh(geometry, material);
-            scene.add(earth);
-            
-            // 创建粒子
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 1000;
-            
-            const posArray = new Float32Array(particlesCount * 3);
-            
-            for (let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 500;
+            // 自动轮播
+            function nextSlide() {
+                slides[currentSlide].style.opacity = '0';
+                dots[currentSlide].classList.remove('active', 'bg-opacity-100');
+                dots[currentSlide].classList.add('bg-opacity-50');
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].style.opacity = '1';
+                dots[currentSlide].classList.add('active', 'bg-opacity-100');
+                dots[currentSlide].classList.remove('bg-opacity-50');
             }
             
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            // 设置自动轮播间隔
+            let slideInterval = setInterval(nextSlide, 5000);
             
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.5,
-                color: 0xE6AF2E
+            // 点击指示点切换幻灯片
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    clearInterval(slideInterval);
+                    
+                    slides[currentSlide].style.opacity = '0';
+                    dots[currentSlide].classList.remove('active', 'bg-opacity-100');
+                    dots[currentSlide].classList.add('bg-opacity-50');
+                    
+                    currentSlide = index;
+                    
+                    slides[currentSlide].style.opacity = '1';
+                    dots[currentSlide].classList.add('active', 'bg-opacity-100');
+                    dots[currentSlide].classList.remove('bg-opacity-50');
+                    
+                    // 重新设置自动轮播
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
             });
-            
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-            
-            // 动画
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                earth.rotation.y += 0.001;
-                particlesMesh.rotation.y += 0.0005;
-                
-                renderer.render(scene, camera);
-            }
-            
-            animate();
             
             // 响应式调整
             window.addEventListener('resize', function() {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
+                // 无需特殊调整，图片使用object-cover
             });
         });
     </script>
