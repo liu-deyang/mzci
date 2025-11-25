@@ -269,11 +269,7 @@
                     <button id="lang-tw" class="lang-btn text-gray-300 hover:text-secondary transition-colors">繁體</button>
                 </div>
                 
-                <!-- AI顾问按钮 -->
-                <button id="ai-advisor-btn" class="bg-secondary hover:bg-secondary-light text-white px-4 py-2 rounded-full flex items-center transition-colors">
-                    <i class="fas fa-robot mr-2"></i>
-                    <span class="lang-transition" data-lang-zh="AI顾问" data-lang-en="AI Advisor" data-lang-tw="AI顧問">AI Advisor</span>
-                </button>
+                
             </div>
             
             <!-- 移动端菜单按钮 -->
@@ -300,46 +296,11 @@
                 <button id="mobile-lang-tw" class="mobile-lang-btn text-gray-500 hover:text-secondary transition-colors">繁體</button>
             </div>
             
-            <!-- 移动端AI顾问按钮 -->
-            <button id="mobile-ai-advisor-btn" class="bg-secondary hover:bg-secondary-light text-white px-4 py-2 rounded-full flex items-center mt-2 transition-colors">
-                <i class="fas fa-robot mr-2"></i>
-                <span class="lang-transition" data-lang-zh="AI顾问" data-lang-en="AI Advisor" data-lang-tw="AI顧問">AI Advisor</span>
-            </button>
+            
         </div>
     </nav>
     
-    <!-- AI顾问聊天窗口 -->
-    <div id="ai-chat" class="ai-chat-container fixed bottom-6 right-6 w-80 md:w-96 bg-white rounded-lg shadow-xl z-40">
-        <div class="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
-            <div class="flex items-center">
-                <i class="fas fa-robot text-secondary mr-2"></i>
-                <h3 class="font-bold lang-transition" data-lang-zh="AI投资顾问" data-lang-en="AI Investment Advisor" data-lang-tw="AI投資顧問">AI Investment Advisor</h3>
-            </div>
-            <button id="close-chat-btn" class="text-white hover:text-secondary">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div id="chat-messages" class="p-4 h-80 overflow-y-auto bg-gray-50">
-            <div class="chat-message flex mb-4">
-                <div class="bg-primary text-white rounded-lg py-2 px-4 max-w-[80%]">
-                    <p class="lang-transition" data-lang-zh="您好！我是您的AI投资顾问。请问有什么可以帮助您的？" data-lang-en="Hello! I am your AI Investment Advisor. How can I help you?" data-lang-tw="您好！我是您的AI投資顧問。請問有什麼可以幫助您的？">Hello! I am your AI Investment Advisor. How can I help you?</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="p-4 border-t">
-            <div class="flex">
-                <input type="text" id="chat-input" placeholder="Type your question..." class="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary lang-transition" data-lang-zh="输入您的问题..." data-lang-en="Type your question..." data-lang-tw="輸入您的問題...">
-                <button id="send-message-btn" class="bg-primary hover:bg-primary-light text-white px-4 py-2 rounded-r-lg transition-colors">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-            <div class="mt-2 text-xs text-gray-500">
-                <p class="lang-transition" data-lang-zh="示例问题：市场趋势分析、投资组合建议、风险评估" data-lang-en="Example questions: Market trend analysis, portfolio advice, risk assessment" data-lang-tw="示例問題：市場趨勢分析、投資組合建議、風險評估">Example questions: Market trend analysis, portfolio advice, risk assessment</p>
-            </div>
-        </div>
-    </div>
+    
     
     <!-- 首屏 -->
     <section id="home" class="relative h-screen flex items-center bg-gradient">
@@ -1005,88 +966,81 @@ AI投資策略的優勢主要體現在以下幾個方面：<br><br>
                 <p class="max-w-3xl mx-auto text-gray-600 lang-transition" data-lang-zh="我们拥有一支经验丰富、专业素质高的投资团队，为客户提供专业的投资建议和服务。" data-lang-en="We have an experienced and highly professional investment team that provides clients with professional investment advice and services." data-lang-tw="我們擁有一支經驗豐富、專業素質高的投資團隊，為客戶提供專業的投資建議和服務。"></p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- 团队成员1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover section">
-                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/2290253987422666766~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&amp;x-expires=1779287299&amp;x-signature=OPK9Zp91MQNobdvS58aBY412ivA%3D" alt="张明 - 首席执行官" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-1">张明</h3>
-                        <p class="text-gray-600 mb-3 lang-transition" data-lang-zh="首席执行官" data-lang-en="CEO" data-lang-tw="首席執行官"></p>
-                        <p class="text-gray-600 text-sm mb-4 lang-transition" data-lang-zh="拥有20年金融投资经验，曾任多家国际投资银行高管。" data-lang-en="20 years of financial investment experience,曾任 senior executive at multiple international investment banks." data-lang-tw="擁有20年金融投資經驗，曾任多家國際投資銀行高管。"></p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
+            <!-- 团队整体介绍 -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-12 section">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://p3-doubao-search-sign.byteimg.com/labis/e6a6c281cf3f0ff431dd42ed14814165~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&amp;x-expires=1779287299&amp;x-signature=MD1XJ1mRHInqb7mV3Kt6s9pA9MA%3D" alt="专业团队" class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary mb-4 lang-transition" data-lang-zh="团队概览" data-lang-en="Team Overview" data-lang-tw="團隊概覽"></h3>
+                        <p class="text-gray-600 mb-6 lang-transition" data-lang-zh="我们的团队由来自全球顶尖金融机构和科技公司的专业人士组成，平均拥有15年以上的行业经验。团队成员涵盖投资银行、资产管理、风险控制、金融科技等多个领域的专家，具备深厚的专业知识和丰富的实践经验。" data-lang-en="Our team consists of professionals from top global financial institutions and technology companies, with an average of over 15 years of industry experience. Team members include experts in investment banking, asset management, risk control, fintech, and other fields, with deep professional knowledge and rich practical experience." data-lang-tw="我們的團隊由來自全球頂尖金融機構和科技公司的專業人士組成，平均擁有15年以上的行業經驗。團隊成員涵蓋投資銀行、資產管理、風險控制、金融科技等多個領域的專家，具備深厚的專業知識和豐富的實踐經驗。"></p>
+                        <p class="text-gray-600 mb-6 lang-transition" data-lang-zh="我们注重团队协作和知识共享，通过多元化的背景和专业视角，为客户提供全面、创新的投资解决方案。团队成员定期参与行业研讨和专业培训，保持对市场趋势和投资机会的敏锐洞察力。" data-lang-en="We emphasize teamwork and knowledge sharing, providing clients with comprehensive and innovative investment solutions through diverse backgrounds and professional perspectives. Team members regularly participate in industry seminars and professional training to maintain keen insight into market trends and investment opportunities." data-lang-tw="我們注重團隊協作和知識共享，通過多元化的背景和專業視角，為客戶提供全面、創新的投資解決方案。團隊成員定期參與行業研討和專業培訓，保持對市場趨勢和投資機會的敏銳洞察力。"></p>
                     </div>
                 </div>
-                
-                <!-- 团队成员2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover section">
-                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/2292177694609113103~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&amp;x-expires=1779287299&amp;x-signature=x7ob8tqsJJ0J8QzH4sYQtp9trZo%3D" alt="John Smith - 首席投资官" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-1">John Smith</h3>
-                        <p class="text-gray-600 mb-3 lang-transition" data-lang-zh="首席投资官" data-lang-en="CIO" data-lang-tw="首席投資官"></p>
-                        <p class="text-gray-600 text-sm mb-4 lang-transition" data-lang-zh="前华尔街资深投资分析师，专注于全球宏观策略和资产配置。" data-lang-en="Former senior investment analyst on Wall Street, focusing on global macro strategies and asset allocation." data-lang-tw="前華爾街資深投資分析師，專注於全球宏觀策略和資產配置。"></p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
+            </div>
+            
+            <!-- 专业能力 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 section">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-primary"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 lang-transition" data-lang-zh="投资专业能力" data-lang-en="Investment Expertise" data-lang-tw="投資專業能力"></h3>
+                    <p class="text-gray-600 lang-transition" data-lang-zh="团队拥有丰富的投资经验，涵盖股票、债券、另类投资等多个领域，能够为客户提供全面的投资组合管理和资产配置服务。" data-lang-en="The team has rich investment experience covering stocks, bonds, alternative investments and other fields, providing clients with comprehensive portfolio management and asset allocation services." data-lang-tw="團隊擁有豐富的投資經驗，涵蓋股票、債券、另類投資等多個領域，能夠為客戶提供全面的投資組合管理和資產配置服務。"></p>
                 </div>
                 
-                <!-- 团队成员3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover section">
-                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/2290815932342861831~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&amp;x-expires=1779287299&amp;x-signature=zRPbeSksO3M2ra8%2BQQ8P6kJ2W48%3D" alt="李婷 - 风控总监" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-1">李婷</h3>
-                        <p class="text-gray-600 mb-3 lang-transition" data-lang-zh="风控总监" data-lang-en="Risk Director" data-lang-tw="風控總監"></p>
-                        <p class="text-gray-600 text-sm mb-4 lang-transition" data-lang-zh="风险管理专家，曾在国际知名金融机构担任风控要职。" data-lang-en="Risk management expert,曾任 key risk management positions at internationally renowned financial institutions." data-lang-tw="風險管理專家，曾在國際知名金融機構擔任風控要職。"></p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-primary"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 lang-transition" data-lang-zh="风险管理能力" data-lang-en="Risk Management" data-lang-tw="風險管理能力"></h3>
+                    <p class="text-gray-600 lang-transition" data-lang-zh="团队具备完善的风险管理体系和专业的风险控制能力，能够有效识别、评估和管理各类投资风险，保障客户资产安全。" data-lang-en="The team has a comprehensive risk management system and professional risk control capabilities, effectively identifying, assessing and managing various investment risks to ensure client asset safety." data-lang-tw="團隊具備完善的風險管理體系和專業的風險控制能力，能夠有效識別、評估和管理各類投資風險，保障客戶資產安全。"></p>
                 </div>
                 
-                <!-- 团队成员4 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover section">
-                    <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/2178800307653050381~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&amp;x-expires=1779287299&amp;x-signature=2qMRd%2Budc994jnvCe5C5Wj%2Fydsk%3D" alt="Michael Chen - 技术总监" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-1">Michael Chen</h3>
-                        <p class="text-gray-600 mb-3 lang-transition" data-lang-zh="技术总监" data-lang-en="CTO" data-lang-tw="技術總監"></p>
-                        <p class="text-gray-600 text-sm mb-4 lang-transition" data-lang-zh="金融科技专家，负责AI投资策略和数据分析系统的开发。" data-lang-en="FinTech expert, responsible for the development of AI investment strategies and data analysis systems." data-lang-tw="金融科技專家，負責AI投資策略和數據分析系統的開發。"></p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </a>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 lang-transition" data-lang-zh="金融科技能力" data-lang-en="FinTech Capabilities" data-lang-tw="金融科技能力"></h3>
+                    <p class="text-gray-600 lang-transition" data-lang-zh="团队拥有金融科技专家，擅长运用人工智能、大数据分析等技术，为客户提供数据驱动的投资策略和智能投顾服务。" data-lang-en="The team has fintech experts skilled in using AI, big data analysis and other technologies to provide clients with data-driven investment strategies and intelligent advisory services." data-lang-tw="團隊擁有金融科技專家，擅長運用人工智慧、大數據分析等技術，為客戶提供數據驅動的投資策略和智能投顧服務。"></p>
+                </div>
+            </div>
+            
+            <!-- 团队文化 -->
+            <div class="bg-white rounded-lg shadow-lg p-8 section">
+                <h3 class="text-2xl font-bold text-primary mb-6 text-center lang-transition" data-lang-zh="团队文化" data-lang-en="Team Culture" data-lang-tw="團隊文化"></h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-2xl text-secondary"></i>
                         </div>
+                        <h4 class="text-lg font-bold text-primary mb-2 lang-transition" data-lang-zh="诚信为本" data-lang-en="Integrity" data-lang-tw="誠信為本"></h4>
+                        <p class="text-gray-600 lang-transition" data-lang-zh="坚守职业道德，以诚信为基石，为客户提供透明、可靠的服务。" data-lang-en="Adhere to professional ethics, take integrity as the cornerstone, and provide clients with transparent and reliable services." data-lang-tw="堅守職業道德，以誠信為基石，為客戶提供透明、可靠的服務。"></p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-2xl text-secondary"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-2 lang-transition" data-lang-zh="创新思维" data-lang-en="Innovation" data-lang-tw="創新思維"></h4>
+                        <p class="text-gray-600 lang-transition" data-lang-zh="鼓励创新思维，不断探索投资新方法和新技术，为客户创造更大价值。" data-lang-en="Encourage innovative thinking, constantly explore new investment methods and technologies to create greater value for clients." data-lang-tw="鼓勵創新思維，不斷探索投資新方法和新技術，為客戶創造更大價值。"></p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl text-secondary"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-2 lang-transition" data-lang-zh="团队协作" data-lang-en="Collaboration" data-lang-tw="團隊協作"></h4>
+                        <p class="text-gray-600 lang-transition" data-lang-zh="注重团队合作，发挥集体智慧，为客户提供全面、专业的解决方案。" data-lang-en="Emphasize teamwork, give play to collective wisdom, and provide clients with comprehensive and professional solutions." data-lang-tw="注重團隊合作，發揮集體智慧，為客戶提供全面、專業的解決方案。"></p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-pie text-2xl text-secondary"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-2 lang-transition" data-lang-zh="客户至上" data-lang-en="Client Focus" data-lang-tw="客戶至上"></h4>
+                        <p class="text-gray-600 lang-transition" data-lang-zh="以客户需求为中心，提供个性化的投资服务，实现客户资产的长期稳健增值。" data-lang-en="Focus on client needs, provide personalized investment services, and achieve long-term stable appreciation of client assets." data-lang-tw="以客戶需求為中心，提供個性化的投資服務，實現客戶資產的長期穩健增值。"></p>
                     </div>
                 </div>
             </div>
@@ -1665,101 +1619,7 @@ AI投資策略的優勢主要體現在以下幾個方面：<br><br>
         
         observer.observe(document.querySelector('.stat-number').parentElement.parentElement);
         
-        // AI顾问聊天窗口
-        document.getElementById('ai-advisor-btn').addEventListener('click', function() {
-            document.getElementById('ai-chat').classList.toggle('open');
-        });
         
-        document.getElementById('mobile-ai-advisor-btn').addEventListener('click', function() {
-            document.getElementById('ai-chat').classList.toggle('open');
-            document.getElementById('mobile-menu').classList.remove('open');
-        });
-        
-        document.getElementById('close-chat-btn').addEventListener('click', function() {
-            document.getElementById('ai-chat').classList.remove('open');
-        });
-        
-        document.getElementById('try-ai-btn').addEventListener('click', function() {
-            document.getElementById('ai-chat').classList.add('open');
-            document.getElementById('ai-chat').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // 发送消息
-        document.getElementById('send-message-btn').addEventListener('click', sendMessage);
-        document.getElementById('chat-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-        
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
-            
-            if (message) {
-                // 添加用户消息
-                addMessage(message, 'user');
-                input.value = '';
-                
-                // 模拟AI回复
-                setTimeout(() => {
-                    const response = getAIResponse(message);
-                    addMessage(response, 'ai');
-                }, 1000);
-            }
-        }
-        
-        function addMessage(message, sender) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('chat-message', 'flex', 'mb-4');
-            
-            if (sender === 'user') {
-                messageDiv.classList.add('justify-end');
-                messageDiv.innerHTML = `
-                    <div class="bg-secondary text-white rounded-lg py-2 px-4 max-w-[80%]">
-                        <p>${message}</p>
-                    </div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="bg-primary text-white rounded-lg py-2 px-4 max-w-[80%]">
-                        <p>${message}</p>
-                    </div>
-                `;
-            }
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        // 模拟AI回复
-        function getAIResponse(message) {
-            // 简单的关键词匹配
-            message = message.toLowerCase();
-            
-            if (message.includes('市场') || message.includes('趋势') || message.includes('market') || message.includes('trend')) {
-                return currentLang === 'zh' ? '根据最新数据分析，科技和新能源行业正呈现上升趋势，建议关注相关领域的优质企业。' : 
-                       currentLang === 'en' ? 'According to the latest data analysis, the technology and new energy industries are showing an upward trend. It is recommended to pay attention to high-quality enterprises in related fields.' :
-                       '根據最新數據分析，科技和新能源行業正呈現上升趨勢，建議關注相關領域的優質企業。';
-            } else if (message.includes('投资组合') || message.includes('portfolio') || message.includes('配置')) {
-                return currentLang === 'zh' ? '基于您的风险偏好，建议的投资组合配置为：股票40%、债券30%、房地产20%、另类投资10%。' :
-                       currentLang === 'en' ? 'Based on your risk preference, the recommended portfolio allocation is: 40% stocks, 30% bonds, 20% real estate, and 10% alternative investments.' :
-                       '基於您的風險偏好，建議的投資組合配置為：股票40%、債券30%、房地產20%、另類投資10%。';
-            } else if (message.includes('风险') || message.includes('risk') || message.includes('安全')) {
-                return currentLang === 'zh' ? '我们采用多元化投资策略和严格的风险控制体系，通过资产配置和止损机制来降低投资风险。' :
-                       currentLang === 'en' ? 'We adopt a diversified investment strategy and strict risk control system to reduce investment risks through asset allocation and stop-loss mechanisms.' :
-                       '我們採用多元化投資策略和嚴格的風險控制體系，通過資產配置和止損機制來降低投資風險。';
-            } else if (message.includes('你好') || message.includes('hi') || message.includes('hello') || message.includes('您好')) {
-                return currentLang === 'zh' ? '您好！我是您的AI投资顾问。请问有什么可以帮助您的？' :
-                       currentLang === 'en' ? 'Hello! I am your AI investment advisor. How can I help you?' :
-                       '您好！我是您的AI投資顧問。請問有什麼可以幫助您的？';
-            } else {
-                return currentLang === 'zh' ? '感谢您的咨询。我们的专业投资顾问将为您提供更详细的解答。您可以留下联系方式，我们会尽快与您联系。' :
-                       currentLang === 'en' ? 'Thank you for your inquiry. Our professional investment advisors will provide you with more detailed answers. You can leave your contact information and we will get in touch with you as soon as possible.' :
-                       '感謝您的諮詢。我們的專業投資顧問將為您提供更詳細的解答。您可以留下聯繫方式，我們會儘快與您聯繫。';
-            }
-        }
         
 
         
