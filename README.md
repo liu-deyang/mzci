@@ -87,79 +87,15 @@ applications/
 2. 可以根据需要清理旧的申请数据
 3. 考虑实现简单的数据管理界面来查看和处理申请
 
-### 使用Gmail（仅开发测试用）
-
-1. 启用Gmail的SMTP服务
-2. 创建应用专用密码（如果启用了2FA）
-3. 配置：
-   ```javascript
-   const transporter = nodemailer.createTransport({
-     service: 'gmail',
-     auth: {
-       user: 'your-email@gmail.com',
-       pass: 'your-app-password'
-     }
-   });
-   ```
-
-### 使用SendGrid（推荐生产环境）
-
-1. 在SendGrid注册账号并获取API密钥
-2. 安装SendGrid插件：
-   ```
-   npm install @sendgrid/mail
-   ```
-3. 配置：
-   ```javascript
-   const sgMail = require('@sendgrid/mail');
-   sgMail.setApiKey('your-sendgrid-api-key');
-   
-   // 在发送邮件处：
-   await sgMail.send({
-     to: 'service@mzci.com.hk',
-     from: 'recruitment@mzci.com.hk',
-     subject: `Job Application: ${position} - ${name}`,
-     text: '...',
-     html: '...'
-   });
-   ```
-
-### 使用Mailgun
-
-1. 在Mailgun注册账号并获取API密钥和域名
-2. 安装Mailgun插件：
-   ```
-   npm install mailgun-js
-   ```
-3. 配置：
-   ```javascript
-   const mailgun = require('mailgun-js')({
-     apiKey: 'your-mailgun-api-key',
-     domain: 'your-mailgun-domain'
-   });
-   
-   // 在发送邮件处：
-   const data = {
-     from: 'Minze Capital Recruitment <recruitment@mzci.com.hk>',
-     to: 'service@mzci.com.hk',
-     subject: `Job Application: ${position} - ${name}`,
-     text: '...'
-   };
-   
-   await mailgun.messages().send(data);
-   ```
-
 ## 生产环境部署建议
 
-1. 使用专业的邮件服务（如SendGrid、Mailgun、Amazon SES）
-2. 配置环境变量存储敏感信息（API密钥、密码等）
-3. 使用HTTPS确保数据传输安全
-4. 实现文件上传到云存储（如AWS S3）而非本地存储
-5. 添加表单验证和防 spam 措施
-6. 实现邮件发送状态跟踪和日志记录
+1. 配置环境变量存储敏感信息
+2. 使用HTTPS确保数据传输安全
+3. 实现文件上传到云存储（如AWS S3）而非本地存储
+4. 添加表单验证和防 spam 措施
+5. 实现应用数据的定期备份和恢复机制
 
 ## 注意事项
 
-- 请勿在生产环境中使用Gmail的SMTP服务，可能会被标记为垃圾邮件
 - 确保遵守相关的隐私政策和数据保护法规
-- 对于大量邮件发送，考虑使用专业的招聘管理系统
+- 对于大量申请数据，考虑使用专业的招聘管理系统或数据库存储
