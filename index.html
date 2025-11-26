@@ -2530,29 +2530,74 @@ AI投資策略的優勢主要體現在以下幾個方面：<br><br>
                 }
             });
             
+            // 使用后端API保存申请信息
+            async function saveApplication(formData) {
+                try {
+                    // 实际应用中，这里会调用后端API
+                    const response = await fetch('/api/save-application', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to save application');
+                    }
+                    
+                    const result = await response.json();
+                    return result.success;
+                } catch (error) {
+                    console.error('Error saving application:', error);
+                    throw error;
+                }
+            }
+            
             // 表单提交
-            careerApplicationForm.addEventListener('submit', function(e) {
+            careerApplicationForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 // 获取表单数据
                 const formData = new FormData(this);
                 
-                // 在实际应用中，这里会发送表单数据到服务器
-                // 这里仅做演示，显示成功消息
-                
-                // 显示成功消息
+                // 显示加载状态
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
                 const lang = currentLang;
-                const successMessage = lang === 'zh' ? '您的申请已成功提交！我们将尽快与您联系。' : 
-                                      lang === 'en' ? 'Your application has been successfully submitted! We will contact you soon.' : 
-                                      '您的申請已成功提交！我們將儘快與您聯繫。';
+                const loadingText = lang === 'zh' ? '<i class="fas fa-spinner fa-spin mr-2"></i>提交中...' : 
+                                  lang === 'en' ? '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...' : 
+                                  '<i class="fas fa-spinner fa-spin mr-2"></i>提交中...';
                 
-                alert(successMessage);
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = loadingText;
                 
-                // 重置表单
-                this.reset();
-                
-                // 隐藏表单
-                applicationForm.classList.add('hidden');
+                try {
+                    // 保存申请信息
+                    await saveApplication(formData);
+                    
+                    // 显示成功消息
+                    const successMessage = lang === 'zh' ? '您的申请已成功保存到本地系统！' : 
+                                          lang === 'en' ? 'Your application has been successfully saved to the local system!' : 
+                                          '您的申請已成功保存到本地系統！';
+                    
+                    alert(successMessage);
+                    
+                    // 重置表单
+                    this.reset();
+                    
+                    // 隐藏表单
+                    applicationForm.classList.add('hidden');
+                } catch (error) {
+                    // 显示错误消息
+                    const errorMessage = lang === 'zh' ? '保存失败，请稍后重试。' : 
+                                      lang === 'en' ? 'Save failed, please try again later.' : 
+                                      '保存失敗，請稍後重試。';
+                    
+                    alert(errorMessage);
+                    console.error('Save error:', error);
+                } finally {
+                    // 恢复按钮状态
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
             });
             
             // 语言切换时更新职位详情

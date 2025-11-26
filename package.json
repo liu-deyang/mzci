@@ -1,0 +1,21 @@
+{
+  "name": "minze-capital-website",
+  "version": "1.0.0",
+  "description": "Minze Capital International Website with Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "install-deps": "npm install express cors multer uuid",
+    "test": "echo \"Testing application save functionality...\" && node -e \"console.log('To test, run npm start and submit an application through the website')\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
